@@ -51,34 +51,14 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-    	<img src="{% static 'hassan.jpg' %}" class="rounded-circle" height="250">
-      <h1>Hassan Mehmood</h1>
-      <p class="lead text-muted">Hi, I'm a Computer Engineer who enjoys developing apps and data pipelines!</p>
+    	<img src="{{ job.image.url }}" class="" height="250">
+      <h1>Job Details</h1>
+      <p class="lead text-muted">{{ job.summary }}</p>
       <p>
-        <a href="#" class="btn btn-primary my-2">Email Me</a>
+        <a href="{% url 'home' %}" class="btn btn-primary my-2">Back to Home!</a>
       </p>
     </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        
-        {% for job in jobs %}
-	        <div class="col-md-4">
-	        	<a href="{% url 'details' job.id %}">
-		          <div class="card mb-4 shadow-sm">
-		            <img src="{{ job.image.url }}" height="300">
-		            <div class="card-body">
-		              <p class="card-text">{{ job.summary }}</p> 
-		            </div>
-		          </div>
-		         </a>
-	        </div>
-	       {% endfor %}
-      </div>
-    </div>
-  </div>
 
 </main>
 <script src="{% static 'jquery-3.5.0.min.js' %}"></script>
